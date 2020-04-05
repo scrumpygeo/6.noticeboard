@@ -5,12 +5,14 @@ import NoteDelete from './notes/NoteDelete';
 import NoteEdit from './notes/NoteEdit';
 import NoteList from './notes/NoteList';
 import NoteShow from './notes/NoteShow';
+import Header from './Header';
 
 const App = () => {
   return (
-    <div>
+    <div className='container'>
       <BrowserRouter>
         <div>
+          <Header />
           <Route path='/' exact component={NoteList} />
           <Route path='/notes/new' exact component={NoteCreate} />
           <Route path='/notes/edit' exact component={NoteEdit} />

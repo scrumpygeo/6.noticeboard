@@ -1,8 +1,25 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import NoteCreate from './notes/NoteCreate';
+import NoteDelete from './notes/NoteDelete';
+import NoteEdit from './notes/NoteEdit';
+import NoteList from './notes/NoteList';
+import NoteShow from './notes/NoteShow';
 
 const App = () => {
-  return <div>Hello App</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Route path='/' exact component={NoteList} />
+          <Route path='/notes/new' exact component={NoteCreate} />
+          <Route path='/notes/edit' exact component={NoteEdit} />
+          <Route path='/notes/delete' exact component={NoteDelete} />
+          <Route path='/notes/show' exact component={NoteShow} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;

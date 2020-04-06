@@ -9,7 +9,7 @@ const Header = () => {
         <Link to='/'>Noticeboard</Link>
       </div>
       <div className='float-right'>
-        <div className='nav-item float-left pr-3'>
+        <div className='nav-item float-left pr-3 pt-1'>
           <Link to='/'>All Notices</Link>
         </div>
         <div className='nav-item float-right'>

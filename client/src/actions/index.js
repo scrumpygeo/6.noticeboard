@@ -8,9 +8,10 @@ import {
   EDIT_STREAM,
 } from './types';
 
-export const signIn = () => {
+export const signIn = (userId) => {
   return {
     type: SIGN_IN,
+    payload: userId,
   };
 };
 

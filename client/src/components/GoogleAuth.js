@@ -26,14 +26,14 @@ class GoogleAuth extends Component {
   onAuthChange = (isSignedIn) => {
     // this.setState({ isSignedIn: this.auth.isSignedIn.get() }); no longer need component level state keeping track of signed in status so remove.
     if (isSignedIn) {
-      this.props.signIn();
+      this.props.signIn(this.auth.currentUser.get().getId());
     } else {
       this.props.signOut();
     }
   };
 
   onSignInClick = () => {
-    this.auth.signIn(this.auth.currentUser.get().getId());
+    this.auth.signIn();
   };
 
   onSignOutClick = () => {

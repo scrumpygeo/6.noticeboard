@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
@@ -20,16 +22,21 @@ class GoogleAuth extends Component {
     });
   }
 
+  onAuthChange = (isSignedIn) => {
+    // this.setState({ isSignedIn: this.auth.isSignedIn.get() }); no longer need component level state keeping track of signed in status so remove.
+    if (isSignedIn) {
+      this.props.signIn();
+    } else {
+      this.props.signOut();
+    }
+  };
+
   onSignInClick = () => {
     this.auth.signIn();
   };
 
   onSignOutClick = () => {
     this.auth.signOut();
-  };
-
-  onAuthChange = () => {
-    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
   };
 
   renderAuthButton() {
@@ -57,4 +64,4 @@ class GoogleAuth extends Component {
   }
 }
 
-export default GoogleAuth;
+export default connect(null, { signIn, signOut })(GoogleAuth);

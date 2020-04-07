@@ -5,7 +5,7 @@ import { signIn, signOut } from '../actions';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 class GoogleAuth extends Component {
-  state = { isSignedIn: null };
+  // state = { isSignedIn: null }; - removed because redux holding state henceforth
 
   componentDidMount() {
     window.gapi.load('client:auth2', () => {
@@ -16,7 +16,8 @@ class GoogleAuth extends Component {
         })
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
-          this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+          // this.setState({ isSignedIn: this.auth.isSignedIn.get() }); - refactored when changing from comp-level stat to redux-l-s
+          this.onAuthChange(this.auth.isSignedIn.get()); // pass in current signed-in state
           this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
@@ -40,9 +41,9 @@ class GoogleAuth extends Component {
   };
 
   renderAuthButton() {
-    if (this.state.isSignedIn === null) {
+    if (this.props.isSignedIn === null) {
       return null;
-    } else if (this.state.isSignedIn) {
+    } else if (this.props.isSignedIn) {
       return (
         <div className='btn btn-success' onClick={this.onSignOutClick}>
           <i className='fab fa-google pr-2'> </i>
@@ -63,5 +64,10 @@ class GoogleAuth extends Component {
     return <div>{this.renderAuthButton()}</div>;
   }
 }
+
+// send auth status in redux back to googleauth:
+const mapStateToProps = (state) => {
+  return { isSignedIn: state.auth.isSignedIn };
+};
 
 export default connect(null, { signIn, signOut })(GoogleAuth);

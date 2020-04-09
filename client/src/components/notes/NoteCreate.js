@@ -2,18 +2,30 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class NoteCreate extends Component {
-  renderInput({ input, label }) {
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return (
+        <div className='alert alert-danger mt-2' role='alert'>
+          {error}
+        </div>
+      );
+    }
+  }
+
+  renderInput = ({ input, label, meta }) => {
+    const className = `form-control ${
+      meta.error && meta.touched ? 'alert alert-danger' : ''
+    }`;
     return (
       <div className='form-group'>
         <label>{label}</label>
-        <input className='form-control' {...input} />
+        <input className={className} {...input} autoComplete='off' />
+        {this.renderError(meta)}
       </div>
     );
-  }
+  };
 
-  onSubmit(formValues) {
-    console.log(formValues);
-  }
+  onSubmit(formValues) {}
 
   render() {
     return (
@@ -44,4 +56,5 @@ const validate = (formValues) => {
 
 export default reduxForm({
   form: 'noteCreate',
+  validate: validate,
 })(NoteCreate);

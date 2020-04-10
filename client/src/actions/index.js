@@ -22,8 +22,9 @@ export const signOut = () => {
   };
 };
 
-export const createNote = (formValues) => async (dispatch) => {
-  const response = await notes.post('/notes', formValues);
+export const createNote = (formValues) => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await notes.post('/notes', { ...formValues, userId });
 
   dispatch({ type: CREATE_NOTE, payload: response.data });
 };

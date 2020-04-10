@@ -9,6 +9,12 @@
       "title": "Car for Sale",
       "description": "1969 Triumph Herald for sale.",
       "id": 2
+    },
+    {
+      "title": "Aerosol for sale",
+      "description": "Half empty air freshner",
+      "userId": "105187892061997006182",
+      "id": 3
     }
   ]
 }

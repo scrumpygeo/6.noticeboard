@@ -7,6 +7,17 @@ class NoteList extends Component {
     this.props.fetchNotes();
   }
 
+  renderAdmin(note) {
+    if (note.userId === this.props.currentUserId) {
+      return (
+        <div className='d-flex justify-content-between'>
+          <div className='btn btn-primary'>Edit</div>
+          <div className='btn btn-danger'>Delete</div>
+        </div>
+      );
+    }
+  }
+
   renderList() {
     return this.props.notes.map((note) => {
       return (
@@ -16,7 +27,7 @@ class NoteList extends Component {
             <i className='fas fa-flag mr-3' />
             {note.description}
           </div>
-          <div className='card-footer'>hello</div>
+          <div className='card-footer'>{this.renderAdmin(note)}</div>
         </div>
       );
     });
@@ -33,7 +44,10 @@ class NoteList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { notes: Object.values(state.notes) };
+  return {
+    notes: Object.values(state.notes),
+    currentUserId: state.auth.userId,
+  };
 };
 
 export default connect(mapStateToProps, { fetchNotes })(NoteList);

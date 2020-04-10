@@ -1,3 +1,14 @@
 {
-  "notes": []
+  "notes": [
+    {
+      "title": "Shop Closure",
+      "description": "Furniture store closed until further noice",
+      "id": 1
+    },
+    {
+      "title": "Car for Sale",
+      "description": "1969 Triumph Herald for sale.",
+      "id": 2
+    }
+  ]
 }

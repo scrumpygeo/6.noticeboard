@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createNote } from '../../actions'; // action creator
 
 class NoteCreate extends Component {
   renderError({ error, touched }) {
@@ -25,7 +27,9 @@ class NoteCreate extends Component {
     );
   };
 
-  onSubmit(formValues) {}
+  onSubmit = (formValues) => {
+    this.props.createNote(formValues);
+  };
 
   render() {
     return (
@@ -54,7 +58,9 @@ const validate = (formValues) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapped = reduxForm({
   form: 'noteCreate',
   validate: validate,
 })(NoteCreate);
+
+export default connect(null, { createNote })(formWrapped);

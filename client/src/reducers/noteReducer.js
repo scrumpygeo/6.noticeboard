@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   FETCH_NOTE,
   FETCH_NOTES,
@@ -12,8 +13,10 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case CREATE_NOTE:
       return { ...state, [action.payload.id]: action.payload };
-    case EDIT_STREAM:
+    case EDIT_NOTE:
       return { ...state, [action.payload.id]: action.payload };
+    case DELETE_NOTE:
+      return _.omit(state, action.payload);
     default:
       return state;
   }

@@ -16,9 +16,9 @@ const App = () => {
           <Header />
           <Route path='/' exact component={NoteList} />
           <Route path='/notes/new' exact component={NoteCreate} />
-          <Route path='/notes/edit' exact component={NoteEdit} />
-          <Route path='/notes/delete' exact component={NoteDelete} />
-          <Route path='/notes/show' exact component={NoteShow} />
+          <Route path='/notes/edit/:id' exact component={NoteEdit} />
+          <Route path='/notes/delete/:id' exact component={NoteDelete} />
+          <Route path='/notes/show/:id' exact component={NoteShow} />
         </div>
       </Router>
     </div>

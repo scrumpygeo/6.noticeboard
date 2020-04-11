@@ -12,7 +12,9 @@ class NoteList extends Component {
     if (note.userId === this.props.currentUserId) {
       return (
         <div className='d-flex justify-content-between'>
-          <div className='btn btn-primary'>Edit</div>
+          <Link to={`/notes/edit/${note.id}`} className='btn btn-primary'>
+            Edit
+          </Link>
           <div className='btn btn-danger'>Delete</div>
         </div>
       );

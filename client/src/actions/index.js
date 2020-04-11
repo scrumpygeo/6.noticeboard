@@ -1,3 +1,4 @@
+import history from '../history';
 import notes from '../apis/notes';
 import {
   SIGN_IN,
@@ -27,6 +28,7 @@ export const createNote = (formValues) => async (dispatch, getState) => {
   const response = await notes.post('/notes', { ...formValues, userId });
 
   dispatch({ type: CREATE_NOTE, payload: response.data });
+  history.push('/');
 };
 
 export const fetchNotes = () => async (dispatch) => {

@@ -35,7 +35,9 @@ class NoteList extends Component {
     return this.props.notes.map((note) => {
       return (
         <div key={note.id} className='card my-2'>
-          <div className='card-header text-center'>{note.title}</div>
+          <div className='card-header text-center'>
+            <strong>{note.title}</strong>
+          </div>
           <div className='card-body'>
             <i className='fas fa-flag mr-3' />
             {note.description}
@@ -51,7 +53,12 @@ class NoteList extends Component {
       <div>
         <h2 className='text-center mb-3 py-2'>Notices</h2>
         <div>{this.renderList()}</div>
-        <div>{this.renderCreate()}</div>
+        <div
+          className='d-flex justify-content-center'
+          style={{ position: 'sticky', bottom: '5px' }}
+        >
+          {this.renderCreate()}
+        </div>
       </div>
     );
   }

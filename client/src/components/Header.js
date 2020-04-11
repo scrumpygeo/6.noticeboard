@@ -4,7 +4,7 @@ import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
   return (
-    <nav className='navbar navbar-dark bg-light text-dark'>
+    <nav className='navbar navbar-dark bg-light text-dark sticky-top'>
       <div className='nav-item'>
         <Link to='/'>Noticeboard</Link>
       </div>

@@ -45,14 +45,14 @@ class GoogleAuth extends Component {
       return null;
     } else if (this.props.isSignedIn) {
       return (
-        <div className='btn btn-success' onClick={this.onSignOutClick}>
+        <div className='btn btn-danger' onClick={this.onSignOutClick}>
           <i className='fab fa-google pr-2'> </i>
           Sign Out
         </div>
       );
     } else {
       return (
-        <div className='btn btn-danger' onClick={this.onSignInClick}>
+        <div className='btn btn-success' onClick={this.onSignInClick}>
           <i className='fab fa-google pr-2'> </i>
           Sign In With Google
         </div>

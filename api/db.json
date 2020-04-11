@@ -3,22 +3,24 @@
     {
       "title": "Shop Closure",
       "description": "Furniture store closed until further noice",
+      "userId": "105187892061997006182",
       "id": 1
     },
     {
       "title": "Car for Sale",
       "description": "1969 Triumph Herald for sale.",
+      "userId": "105187892061997006182",
       "id": 2
     },
     {
       "title": "Aerosol for sale",
-      "description": "Half empty air freshner",
+      "description": "Half empty air freshener. Febreze.",
       "userId": "105187892061997006182",
       "id": 3
     },
     {
       "title": "Cleaner Wanted",
-      "description": "Looking for 2 morning a week, small house.",
+      "description": "Looking for 2 morning a week, small house. References required.",
       "userId": "105187892061997006182",
       "id": 4
     },
@@ -27,6 +29,12 @@
       "description": "Black tabby. Named mittens but doesn't answer to it because not old enough to know it's name.",
       "userId": "105187892061997006182",
       "id": 5
+    },
+    {
+      "title": "Budgie for Sale",
+      "description": "3 year old, with cage, £10",
+      "userId": "105187892061997006182",
+      "id": 6
     }
   ]
 }

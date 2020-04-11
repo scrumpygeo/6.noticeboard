@@ -44,9 +44,10 @@ export const fetchNote = (id) => async (dispatch) => {
 };
 
 export const editNote = (id, formValues) => async (dispatch) => {
-  const response = await notes.put(`/notes/${id}`, formValues);
+  const response = await notes.patch(`/notes/${id}`, formValues);
 
   dispatch({ type: EDIT_NOTE, payload: response.data });
+  history.push('/');
 };
 
 export const deleteNote = (id) => async (dispatch) => {

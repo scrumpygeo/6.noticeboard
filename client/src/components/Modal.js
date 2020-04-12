@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 export const Modal = (props) => {
   return ReactDOM.createPortal(
-    <div onClick={props.onDismiss}>
+    <div onClick={props.onDismiss} style={{ height: '100vh' }}>
       <div
         className='modal-dialog'
         role='document'

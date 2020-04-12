@@ -54,4 +54,5 @@ export const deleteNote = (id) => async (dispatch) => {
   await notes.delete(`/notes/${id}`);
 
   dispatch({ type: DELETE_NOTE, payload: id });
+  history.push('/');
 };

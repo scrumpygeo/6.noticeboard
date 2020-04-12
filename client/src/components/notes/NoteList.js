@@ -15,7 +15,9 @@ class NoteList extends Component {
           <Link to={`/notes/edit/${note.id}`} className='btn btn-primary'>
             Edit
           </Link>
-          <div className='btn btn-danger'>Delete</div>
+          <Link to={`/notes/delete/${note.id}`} className='btn btn-danger'>
+            Delete
+          </Link>
         </div>
       );
     }
